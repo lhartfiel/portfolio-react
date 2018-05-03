@@ -1,0 +1,210 @@
+.contact {
+	position: relative;
+	background: linear-gradient(to bottom left, rgba($primary, .9) 20%, rgba($primary, .4) );
+
+	.section-title {
+		color: $primary;
+    font-weight: 600; 
+	}
+}
+.contact__email--wrapper {
+	position: relative;
+	margin-bottom: 30px;
+	z-index: 10;
+
+	h1 {
+		color: $c-white;
+	}
+}
+
+.contact--description {
+	width: 85%;
+	margin-top: 40px;
+	color: $c-white;
+	font-size: 1.25rem;
+	line-height: 1.5em;
+
+	@include bp(min, $bp-lg) {
+		width: 60%;
+	}
+}
+
+.contact__link {
+	position: relative;
+	display: inline-block;
+	color: $c-white;
+	text-align: left;
+	font-size: 1.25rem;
+	margin-top: 20px;
+	font-family: $f-main;
+	transition: 0.4s ease all;
+
+	&:after {
+		content: "";
+		position: absolute;
+		height: 2px;
+		width: 100%;
+		left: 0; right: 0;
+		bottom: -30px;
+		margin: 0 auto;
+		background: $secondary;
+		transition: 0.4s ease all;
+	}
+
+	&:hover {
+		color: $secondary;
+		&:after {
+			width: 50%;
+			bottom: -20px;
+		}
+	}
+}
+
+.social {
+	padding-top: 45px;
+	a {
+		display: inline-block;
+		width:36px; height: 36px;
+
+		&:first-of-type {
+			margin-right: 20px;
+		}
+	}
+
+	img {
+		display: block;
+		max-width: 100%;
+		width: 100%;
+	}
+}
+
+form {
+	width: 100%;
+	margin-top: 80px;
+	ul {
+		padding: 0;
+		flex-wrap: wrap;
+	}
+
+	li {
+		position: relative;
+		list-style: none;
+		width: 100%;
+		height: 45px;
+		width: 100%;
+		border: 2px solid $primary;
+		margin-bottom: 20px;
+		transition: 0.2s ease all 0.2s;	
+	
+		&:before,
+		&:after {
+			opacity: 0;
+			content: "";
+			position: absolute;
+			width: 0; height: 0;
+			transition: .4s ease all;
+		}
+
+		&:before {
+			left: 0; top: 0;
+			border-top: 2px solid $primary;
+			border-left: 2px solid $primary;
+		}
+
+		&:after {
+			right: 0; bottom: 0;
+			border-bottom: 2px solid $primary;
+			border-right: 2px solid $primary;
+		}
+
+		&.active-input {
+			border: 0;
+
+			label {
+				font-size: 0.75rem;
+				margin-top: -6px;
+				opacity: 0.7;
+			}
+
+			&:before,
+			&:after {
+				width: 40%;
+				height: 50%;
+				opacity: 1;
+			}
+		}
+
+		&.form__first,
+		&.form__last {
+			width: calc(50% - 20px);
+		}
+
+		&.form__first {
+			margin-right: 20px;
+			padding-right: 12px;
+		}
+
+		&.form__last {
+			margin-left: 20px;
+			padding-left: 12px;
+		}
+
+		&.form__message {
+			height: 100px;
+		}
+	}
+
+	input, textarea {
+		padding-top: 20px;
+		padding-left: 20px; padding-right: 20px;
+		border: none;
+		height: 100%;
+		width: 100%;
+		background: transparent;
+		color: $primary;
+		font-size: 1rem;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	label {
+		position: absolute;
+		padding-left: 20px;
+		font-size: 0.875rem;
+		color: $secondary;
+		transition: 0.4s ease all;
+		z-index: -1;
+	}
+
+	@include bp(min, $bp-lg) {
+		width: 60%;
+	}
+}
+
+
+.submit__wrapper {
+	justify-content: flex-end;
+}
+
+.submit__button {
+	position: relative;
+	width: auto;
+  border-bottom: 2px solid $primary;
+  border-left: 2px solid $primary;
+
+  &:before {
+  	content: "";
+  	position: absolute;
+  	border-top: 2px solid $primary;
+  	width: 50%;
+  }
+}
+input[type="submit"] {
+	font-family: $f-main;
+	font-size: 1.25rem;
+	letter-spacing: 1px;
+  padding: 5px;
+  cursor: pointer;
+}

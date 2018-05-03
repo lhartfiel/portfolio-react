@@ -1,0 +1,151 @@
+@mixin bp($type, $breakpoint) {
+	@if $type == min {
+		@media (min-width: $breakpoint) { @content; }
+	}
+
+	@else if $type == max {
+		@media (max-width: $breakpoint) { @content; }
+	}
+}
+
+
+html, * {
+	box-sizing: border-box;
+}
+
+body {
+}
+
+img {
+	width: 100%;
+}
+
+.section {
+	position: relative;
+	display: block;
+}
+
+.wrapper {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding-left: 20px;
+	padding-right: 20px;
+
+	@include bp(min, $bp-med) {
+		padding-left: 115px;
+		padding-right: 115px;
+	}
+
+	@include bp(min, $bp-lg) {
+		padding-left: 150px;
+		padding-right: 150px;
+	}
+}
+
+.wrapper--vertical {
+	padding-top: 60px; padding-bottom: 20px;
+
+	@include bp(min, $bp-lg) { 
+		padding-bottom: 60px;
+	}
+
+	@include bp(min, $bp-lg) {
+		padding-top: 100px; padding-bottom: 100px;
+	}
+}
+
+.content__wrapper {
+	position: relative;
+	z-index:5;
+}
+
+.highlight {
+	color: $secondary;
+	font-weight: 500;
+}
+
+.triangle,
+.triangle--secondary  {
+	position: absolute;
+	top: -5%;
+	z-index: 0;
+	
+	&.triangle--right {
+		right: 0;
+		border-bottom: 150px solid transparent;
+		border-top: 150px solid transparent;
+		border-right: 75px solid $secondary;
+	}
+
+	&.triangle--left {
+		left: 0;
+		border-bottom: 150px solid transparent;
+		border-top: 150px solid transparent;
+		border-left: 75px solid $secondary;
+	}
+
+	@include bp(min, $bp-lg) {
+		top: -20%;
+		&.triangle--right {
+			border-bottom: 300px solid transparent;
+			border-top: 300px solid transparent;
+			border-right: 150px solid $secondary;
+		}
+
+		&.triangle--left {
+			border-bottom: 300px solid transparent;
+			border-top: 300px solid transparent;
+			border-left: 150px solid $secondary;
+		}
+	}
+}
+
+.triangle--secondary {
+	display: none;
+	top: 15%;
+	z-index: 1;
+
+	&.triangle--secondary--right {
+		right: 0;
+		border-bottom: 150px solid transparent;
+		border-top: 150px solid transparent;
+		border-right: 75px solid rgba($c-white, .3);
+	}
+	&.triangle--secondary--left {
+		left: 0;
+		border-bottom: 150px solid transparent;
+		border-top: 150px solid transparent;
+		border-left: 75px solid $primary;
+		z-index:-1;
+	}
+
+	@include bp(min, $bp-lg) {
+		display: block;
+		&.triangle--secondary--right {
+			border-bottom: 300px solid transparent;
+			border-top: 300px solid transparent;
+			border-right: 150px solid rgba($c-white, .3);
+		}
+		&.triangle--secondary--left {
+			border-bottom: 300px solid transparent;
+			border-top: 300px solid transparent;
+			border-left: 150px solid $primary;
+			z-index:-1;
+		}
+	}
+}
+
+.content__wrapper {
+	width: 100%;
+
+	@include bp(min, $bp-lg) {
+		width: 85%;
+	}
+}
+
+.about, .contact {
+	border-top: 14px solid rgba($c-white, .1);
+}
+
+
+

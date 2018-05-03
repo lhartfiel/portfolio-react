@@ -1,0 +1,114 @@
+h1, h2, h3, h4, h5, h6, p {
+	font-family: $f-main;
+	margin: 0;
+}
+
+h1 {
+	color: $primary;
+
+	&.h1--xl {
+		font-size: 2.5rem;
+	}
+
+	&.section-title {
+		display: none;
+    position: absolute;
+    top: 20%;
+    opacity: .15;
+		color: $c-white;
+    text-transform: lowercase;
+    font-size: 4rem;
+    font-weight: 600;
+    -webkit-transform-origin-y: 100%;
+    transform: rotate(-90deg);
+    z-index: 10;
+	}
+
+	&.section-title--left {
+		 left: 0%;
+
+	}
+	&.section-title--right {
+		 right: -10%;
+	}
+
+	@include bp(min, $bp-med) {
+
+		&.h1--xl {
+			font-size: 5rem;
+		}
+		&.section-title {
+			display: block;
+			font-size: 6rem;
+		}
+	}
+
+	@include bp(min, $bp-lg) {
+		&.section-title {
+			font-size: 8rem;
+		}
+	}
+}
+
+p {
+	margin: 0 0 15px;
+	font-size: 0.875rem;
+	margin: 0; padding: 0;
+
+	@include bp(min, $bp-med) {
+		margin-bottom: 25px;
+		font-size: 1rem;
+	} 
+}
+
+ul {
+	li {
+		color: $tertiary;
+		font-family: $f-main;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.5em;
+		letter-spacing: 3px;
+	}
+
+	@include bp(min, $bp-med) {
+		li {
+			font-size: 1.5rem;
+		}
+	}
+}
+
+* {
+	.fw--light { font-weight: 300; }
+	.fw--regular { font-weight: 400; }
+	.fw--medium { font-weight: 500; }
+	.fw--semibold { font-weight: 600; }
+	.fw--bold { font-weight: 700; }
+
+	.c-white { color: $c-white; }
+
+}
+
+.intro, .intro p {
+	font-size: 2rem;
+
+	&.intro--narrow {
+		width: 100%;
+	}
+
+	p {
+		font-weight: 400;
+	}
+
+	@include bp(min, $bp-med) {
+
+		&.intro--narrow {
+			width: 60%;
+		}
+	}	
+	
+	@include bp(min, $bp-med) {
+		font-size: 3.875rem;
+	}
+
+}

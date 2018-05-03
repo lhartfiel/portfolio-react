@@ -1,0 +1,54 @@
+.skills {
+	position: relative;
+	overflow-x: hidden;
+
+	.section-title {
+		color: $primary;
+		font-weight: 600;
+	}
+
+	.triangle {
+		z-index: 0;
+	}
+
+	.full {
+		ul {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
+		}
+
+		li {
+			width: 100%;
+		}
+	}
+
+	@include bp(min, $bp-med) {
+		.full {
+			ul {
+				flex-wrap: nowrap;
+			}
+			li {
+				width: auto;
+			}
+		}
+	}
+}
+
+.skills__wrapper {
+	flex-wrap: wrap;
+}
+
+.skills__intro {
+	display: block;
+	margin-bottom: 40px;
+	color: $primary;
+	font-weight: 500;
+}
+
+.skills__title, .skills__title p {
+	color: $primary;
+	letter-spacing: 4px;
+	font-size: 2rem;
+	font-weight: 600;
+}
